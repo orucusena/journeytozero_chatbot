@@ -1,0 +1,569 @@
+{
+  "intents": [
+    {
+      "intent": "goodbyes",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "c ya"
+        },
+        {
+          "text": "goodbye"
+        },
+        {
+          "text": "see you"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "aloha"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hi"
+        },
+        {
+          "text": "hola"
+        },
+        {
+          "text": "merhaba"
+        }
+      ],
+      "description": "Greeting for the chatbot."
+    },
+    {
+      "intent": "mission",
+      "examples": [
+        {
+          "text": "about us"
+        },
+        {
+          "text": "mission"
+        },
+        {
+          "text": "Purpose"
+        },
+        {
+          "text": "what is the purpose of this website"
+        },
+        {
+          "text": "what is the purpose of zero hunger"
+        },
+        {
+          "text": "what is your mission"
+        },
+        {
+          "text": "what is zero hunger"
+        }
+      ],
+      "description": "about our mission"
+    },
+    {
+      "intent": "resource",
+      "examples": [
+        {
+          "text": "charities"
+        },
+        {
+          "text": "charity"
+        },
+        {
+          "text": "helping"
+        },
+        {
+          "text": "how can I help"
+        },
+        {
+          "text": "other resources"
+        },
+        {
+          "text": "resouces"
+        },
+        {
+          "text": "zero hunger"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "somethin_else",
+      "examples": [
+        {
+          "text": "can I ask something else"
+        },
+        {
+          "text": "else"
+        },
+        {
+          "text": "I want to ask something else"
+        },
+        {
+          "text": "something else"
+        }
+      ],
+      "description": "When user want to ask  other than our options."
+    },
+    {
+      "intent": "thank_you",
+      "examples": [
+        {
+          "text": "Appreciate it"
+        },
+        {
+          "text": "cheers"
+        },
+        {
+          "text": "thanks"
+        },
+        {
+          "text": "thank you"
+        },
+        {
+          "text": "thks"
+        },
+        {
+          "text": "thx"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "what_you_can_do",
+      "examples": [
+        {
+          "text": "challenges"
+        },
+        {
+          "text": "donating"
+        },
+        {
+          "text": "donation"
+        },
+        {
+          "text": "fundraise"
+        },
+        {
+          "text": "fundraising"
+        },
+        {
+          "text": "helping"
+        },
+        {
+          "text": "how can I help"
+        },
+        {
+          "text": "what I can do"
+        },
+        {
+          "text": "what you can do"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "mission",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "about our mission",
+          "synonyms": [
+            "about our mission",
+            "about us",
+            "mission"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "phone",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "US Phone pattern",
+          "patterns": [
+            "(\\d{3})-(\\d{3})-(\\d{4})"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "reply",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": [
+            "definitely not",
+            "don't think so",
+            "dont think so",
+            "i think not",
+            "nope",
+            "not at this time",
+            "not now"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": [
+            "definitely",
+            "go for it",
+            "let's do it",
+            "ok",
+            "please",
+            "sure",
+            "why not",
+            "yeah",
+            "yep",
+            "yes",
+            "you bet",
+            "you betcha"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "resources",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "resources",
+          "synonyms": [
+            "charities",
+            "resource",
+            "resources to help",
+            "services",
+            "zero hunger"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": []
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    },
+    {
+      "entity": "sys-time",
+      "values": []
+    },
+    {
+      "entity": "what_you_can_do",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "fundraise",
+          "synonyms": [
+            "donate",
+            "fund",
+            "fundraising"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "what you can do",
+          "synonyms": [
+            "how can I help",
+            "what I can do"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, thanks for visiting Journey to Zero. My name is Resa and  I'm here to help you with your questions. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "How would you like to start?",
+            "options": [
+              {
+                "label": "Learn about our mission.",
+                "value": {
+                  "input": {
+                    "text": "mission"
+                  }
+                }
+              },
+              {
+                "label": "See the resources.",
+                "value": {
+                  "input": {
+                    "text": "resources"
+                  }
+                }
+              },
+              {
+                "label": "Learn about our project and challenges.",
+                "value": {
+                  "input": {
+                    "text": "what you can do"
+                  }
+                }
+              },
+              {
+                "label": "Something else.",
+                "value": {
+                  "input": {
+                    "text": "something_else"
+                  }
+                }
+              }
+            ],
+            "description": "",
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "node_10_1627012896105"
+    },
+    {
+      "type": "standard",
+      "title": "About our mission",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "We are aiming to end the hunger in the world with our projects and by educating people about the issue. You can see our full mission statement <a href=\"https://sites.google.com/u/0/d/1UMm2ehufRaZes9AG7tcKyCsjLkdDQl-R/p/1IjEYX2cbLdREJLzO22jHNtZVZZ698Wlv/preview\">here</a>."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#mission",
+      "dialog_node": "node_10_1627059583249",
+      "previous_sibling": "node_4_1627058700572"
+    },
+    {
+      "type": "standard",
+      "title": "Resources",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You can take a look at other organizations that also working for Zero Hunger from our <a href=\"https://sites.google.com/u/0/d/1UMm2ehufRaZes9AG7tcKyCsjLkdDQl-R/p/1jAxSDQNGNDzJC0ZMrgPyW_2QAejJQGsT/preview\">Resources Page</a>."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@resources && #resource",
+      "dialog_node": "node_10_1627059593529",
+      "previous_sibling": "node_10_1627059583249"
+    },
+    {
+      "type": "folder",
+      "title": "chitchat",
+      "dialog_node": "node_10_1627569760967",
+      "previous_sibling": "node_2_1627060480416"
+    },
+    {
+      "type": "standard",
+      "title": "thank you",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You're welcome. Please let me know if you need anything else."
+              },
+              {
+                "text": " My pleasure."
+              },
+              {
+                "text": "No problem. Let me know if there is anything else I can help with."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1627569760967",
+      "conditions": "#thank_you",
+      "dialog_node": "node_10_1627570037604",
+      "previous_sibling": "node_5_1627569879653"
+    },
+    {
+      "type": "standard",
+      "title": "goodbyes",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nice talking to you today."
+              },
+              {
+                "text": "Goodbye."
+              },
+              {
+                "text": "We hope you visit our $city store. Have a nice day."
+              },
+              {
+                "text": "Have a nice day."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1627569760967",
+      "conditions": "#goodbyes",
+      "dialog_node": "node_1_1627570081280",
+      "previous_sibling": "node_10_1627570037604"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand can you try again",
+            "I didn't get your meaning.",
+            "I'm sorry, can you reword your statement? "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "digress_in": "returns",
+      "dialog_node": "node_2_1467831978407",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_10_1627569760967",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Something else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What can I help you with?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#somethin_else",
+      "dialog_node": "node_2_1627060480416",
+      "previous_sibling": "node_10_1627059593529"
+    },
+    {
+      "type": "standard",
+      "title": "What you can do",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "To learn more about our challenges and what YOU can do to help us achieve our goal, please check our page <a href=\"https://sites.google.com/u/0/d/1UMm2ehufRaZes9AG7tcKyCsjLkdDQl-R/p/1DrLGJUS6LblWb5oKTjbJMoNEEvsrjWkT/preview\">here</a>."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@what_you_can_do && #what_you_can_do",
+      "dialog_node": "node_4_1627058700572",
+      "previous_sibling": "node_10_1627012896105"
+    },
+    {
+      "type": "standard",
+      "title": "greetings",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi there. How can I help you?"
+              },
+              {
+                "text": "Hello. How may I assist you today?"
+              },
+              {
+                "text": "Hi. What can I help you with?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1627569760967",
+      "conditions": "#greetings",
+      "dialog_node": "node_5_1627569879653"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Zero Hunger",
+  "language": "en",
+  "description": "Sample simple customer service skill to get you started."
+}
